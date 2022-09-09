@@ -110,21 +110,10 @@ if (reversed == null) { reversed = false; }
 	props.reversed = reversed;
 	cjs.MovieClip.apply(this,[props]);
 
-	// Layer_1
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f().s("#0033FF").ss(0.1,1,1).p("AzcnHMAm5AAAIAAOPMgm5AAAg");
-	this.shape.setTransform(306.8,734.775);
-
-	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("rgba(255,255,255,0.898)").s().p("EgyIBLVMAAAiWpMBkRAAAMAAACWpgEgVoAunMAm4AAAIAAuQMgm4AAAg");
-	this.shape_1.setTransform(320.85,482.075);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.shape}]}).wait(1));
-
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,641.7,964.2);
+p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 
 (lib.Iconmessage = function(mode,startPosition,loop,reversed) {
@@ -190,7 +179,7 @@ if (reversed == null) { reversed = false; }
 		root=this;
 		root.stop();
 		root.Iconmessage_mc.stop();
-		async function getusers(){
+		async function getusers(username){
 			var responce= await	fetch('https://api-games-sigma.vercel.app/api/getusers', {
 					method: 'GET',
 					/*mode: 'no-cors',
@@ -198,10 +187,10 @@ if (reversed == null) { reversed = false; }
 				});
 			const string = await responce.text();
 		      const json = string === "" ? {} : JSON.parse(string);
-				console.log(string);
+				console.log('hello '+username+' your data is'+string);
+		  alert('hello '+username+' your data from server is'+string)
 		      return json;
 			}
-			getusers();
 		
 		
 		root.loginBtn.addEventListener("click", ()=>{
@@ -209,13 +198,13 @@ if (reversed == null) { reversed = false; }
 		element = document.getElementById('username_Input');
 			if (element != null) {
 		    username = element.value;
-					getusers();
+				
 			}
 		else {
 		    username = null;
 		}
+			getusers(username)
 			
-			console.log(username)
 		})
 	}
 
@@ -248,11 +237,11 @@ if (reversed == null) { reversed = false; }
 	this.username_Input = new lib.an_TextInput({'id': 'username_Input', 'value':'', 'disabled':false, 'visible':true, 'class':'ui-textinput'});
 
 	this.username_Input.name = "username_Input";
-	this.username_Input.setTransform(304.15,467.95,4,4,0,0,0,50,11);
+	this.username_Input.setTransform(304.15,376.95,4,4,0,0,0,50,11);
 
 	this.loginBtn = new lib.LoginBtn();
 	this.loginBtn.name = "loginBtn";
-	this.loginBtn.setTransform(306.8,734.8,1,1,0,0,0,124.5,45.6);
+	this.loginBtn.setTransform(300.05,592.8,1,1,0,0,0,124.5,45.6);
 	new cjs.ButtonHelper(this.loginBtn, 0, 1, 1);
 
 	this.loginForm = new lib.LoginBg("synched",0);
@@ -278,7 +267,7 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(318.3,479,1024,486.20000000000005);
+p.nominalBounds = new cjs.Rectangle(368.9,479,973.4,486.20000000000005);
 // library properties:
 lib.properties = {
 	id: '267483B8189D3343994CBE7342C5AC46',
@@ -288,11 +277,11 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/IMG_5350.png?1662671702287", id:"IMG_5350"},
-		{src:"images/WhatsappChat_atlas_1.png?1662671702171", id:"WhatsappChat_atlas_1"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1662671702287", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1662671702287", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/textinput.js?1662671702287", id:"an.TextInput"}
+		{src:"images/IMG_5350.png?1662717543394", id:"IMG_5350"},
+		{src:"images/WhatsappChat_atlas_1.png?1662717543265", id:"WhatsappChat_atlas_1"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1662717543394", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1662717543394", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/textinput.js?1662717543394", id:"an.TextInput"}
 	],
 	preloads: []
 };
