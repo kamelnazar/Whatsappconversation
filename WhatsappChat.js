@@ -179,32 +179,29 @@ if (reversed == null) { reversed = false; }
 		root=this;
 		root.stop();
 		root.Iconmessage_mc.stop();
-		async function getusers(username){
-			var responce= await	fetch('https://api-games-sigma.vercel.app/api/getusers', {
-					method: 'GET',
-					/*mode: 'no-cors',
-					headers: { 'Content-Type': 'application/json'}*/
+		
+		async function login(username){
+			     const response = await fetch('https://api-games-sigma.vercel.app/api/login', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json'},
+				    body: JSON.stringify(username)
 				});
-			const string = await responce.text();
-		      const json = string === "" ? {} : JSON.parse(string);
-				console.log('hello '+username+' your data is'+string);
-		  alert('hello '+username+' your data from server is'+string)
-		      return json;
-			}
+		     	const result = await response.json();
+				if(result.user) console.log("Hello " + username)
+				else console.log(result.message)			
+		}
 		
 		
 		root.loginBtn.addEventListener("click", ()=>{
-			var username,
+		var username,
 		element = document.getElementById('username_Input');
 			if (element != null) {
 		    username = element.value;
-				
 			}
 		else {
 		    username = null;
 		}
-			getusers(username)
-			
+			login(username)
 		})
 	}
 
@@ -277,11 +274,11 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/IMG_5350.png?1662717543394", id:"IMG_5350"},
-		{src:"images/WhatsappChat_atlas_1.png?1662717543265", id:"WhatsappChat_atlas_1"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1662717543394", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1662717543394", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/textinput.js?1662717543394", id:"an.TextInput"}
+		{src:"images/IMG_5350.png?1663410087796", id:"IMG_5350"},
+		{src:"images/WhatsappChat_atlas_1.png?1663410087780", id:"WhatsappChat_atlas_1"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1663410087796", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1663410087796", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/textinput.js?1663410087796", id:"an.TextInput"}
 	],
 	preloads: []
 };
