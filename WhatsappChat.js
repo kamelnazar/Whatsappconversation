@@ -181,14 +181,17 @@ if (reversed == null) { reversed = false; }
 		root.Iconmessage_mc.stop();
 		
 		async function login(username){
-			     const response = await fetch('https://api-games-sigma.vercel.app/api/login', {
+			console.log(username)
+			     const response = await fetch('http://localhost:3000/api/login?username='+username, {
 					method: 'POST',
+					 mode: "no-cors",
 					headers: { 'Content-Type': 'application/json'},
-				    body: JSON.stringify(username)
+				    body: JSON.stringify({username})
 				});
-		     	const result = await response.json();
-				if(result.user) console.log("Hello " + username)
-				else console.log(result.message)			
+			const string = await response.json();
+			const json = string === "" ? {} : JSON.parse(string);
+			console.log(string);
+			console.log(json);
 		}
 		
 		
@@ -274,11 +277,11 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/IMG_5350.png?1663410087796", id:"IMG_5350"},
-		{src:"images/WhatsappChat_atlas_1.png?1663410087780", id:"WhatsappChat_atlas_1"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1663410087796", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1663410087796", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/textinput.js?1663410087796", id:"an.TextInput"}
+		{src:"images/IMG_5350.png?1664563903153", id:"IMG_5350"},
+		{src:"images/WhatsappChat_atlas_1.png?1664563903132", id:"WhatsappChat_atlas_1"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1664563903153", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1664563903153", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/textinput.js?1664563903153", id:"an.TextInput"}
 	],
 	preloads: []
 };
